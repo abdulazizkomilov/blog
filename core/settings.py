@@ -32,6 +32,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'crispy_forms',
+    'ckeditor',
+    'ckeditor_uploader',
+    'accounts',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -106,11 +111,43 @@ USE_I18N = True
 
 USE_TZ = True
 
+# CKeditor Config
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
+CKEDITOR_RESTRICT_BY_USER = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles')) # new
+STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage' # new
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+# AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# LOGIN_REDIRECT_URL = 'home'
+# LOGOUT_REDIRECT_URL = 'home'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+## EMAIL
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
