@@ -7,6 +7,11 @@ name = "pypi"
 django = "==4.1.6"
 pillow = "==9.4.0"
 psycopg2-binary = "==2.9.5"
+environs = "==9.5.0"
+django-crispy-forms = "==1.14.0"
+django-ckeditor = "*"
+whitenoise = "==6.3.0"
+gunicorn = "==20.1.0"
 
 [dev-packages]
 
