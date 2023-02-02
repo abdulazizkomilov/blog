@@ -76,23 +76,31 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DB_USERNAME = os.getenv('DB_USERNAME' , None)
-DB_PASS     = os.getenv('DB_PASS'     , None)
-DB_HOST     = os.getenv('DB_HOST'     , None)
-DB_PORT     = os.getenv('DB_PORT'     , None)
-DB_NAME     = os.getenv('DB_NAME'     , None)
+# DB_USERNAME = os.getenv('DB_USERNAME')
+# DB_PASS     = os.getenv('DB_PASS')
+# DB_HOST     = os.getenv('DB_HOST')
+# DB_PORT     = os.getenv('DB_PORT')
+# DB_NAME     = os.getenv('DB_NAME')
 
 
-DATABASES = { 
-    'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME'    : DB_NAME,
-    'USER'    : DB_USERNAME,
-    'PASSWORD': DB_PASS,
-    'HOST'    : DB_HOST,
-    'PORT'    : DB_PORT,
-    }, 
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': DB_USERNAME, 
+#         'USER': DB_NAME, 
+#         'PASSWORD': DB_PASS,
+#         'HOST': DB_HOST, 
+#         'PORT': DB_PORT,
+#     }
+# }
+
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }
+    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -116,9 +124,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "Asia/Samarkand"
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Samarkand"
 
 USE_I18N = True
 
@@ -150,7 +158,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
-# AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # LOGIN_REDIRECT_URL = 'home'
 # LOGOUT_REDIRECT_URL = 'home'
