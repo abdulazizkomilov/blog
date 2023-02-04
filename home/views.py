@@ -5,4 +5,4 @@ from django.contrib.auth.models import User
 
 def home(request):
 
-    return render(request, 'base1.html')
+    return render(request, 'home.html')
