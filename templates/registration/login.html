@@ -1,5 +1,8 @@
-
-
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Sign IN {% endblock %} 
+{% load crispy_forms_tags %}
+{% block content %}
 <div class="page-header min-vh-75 mt-0">
     <div class="container">
       <div class="row">
@@ -9,48 +12,29 @@
               <h3 class="font-weight-bolder text-info text-gradient">
                 Sign IN  
               </h3>
-              <p class="mb-0">
-                
-                  Default account: <strong>test / PaSS_123</strong>
-                                      
-              </p>
             </div>
             <div class="card-body">
-              <form role="form" method="post" action="https://django-soft-dash.onrender.com/accounts/login/#">
-                
-                <input type="hidden" name="csrfmiddlewaretoken" value="wK853dBsRT0AxuKTKuFHSry0DwBUIpU6nGkkSwvXy01HYKkD8apyGZRGD518UqLU">
-  
-                <label for="id_username">Username</label>
-                <div class="mb-3">
-                  <input type="text" name="username" class="form-control" placeholder="Username" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" value="test">
-                </div>
-                <label for="id_password">Password</label>
-                <div class="mb-3">
-                  <input type="password" name="password" class="form-control" placeholder="Password" required="" id="id_password" value="PaSS_123">
-                </div>
-  
-                <p class=""> 
-                  <br>
-                </p>
-  
+              <form role="form" method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
                 <div class="text-center">
                   <button type="submit" class="btn bg-gradient-info w-100 mt-1 mb-0">Sign in</button>
                   <p class="mt-4">
                     Don't have an account? 
-                    <a href="https://django-soft-dash.onrender.com/accounts/register/" class="text-primary">Register</a>
+                    <a href="{% url 'accounts:signup' %}" class="text-primary">Register</a>
                   </p>
                 </div>
-  
               </form>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-            <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url(/static/img/ivancik.jpg)"></div>
+        <div class="col">
+          <div class="oblique position-absolute top-2  h-100 d-md-block d-none">
+            <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n9" style="background-image:url(/static/img/ivancik.jpg); width: 80%; height: 80%;"></div>
           </div>
         </div>
       </div>
     </div>
 </div>
   
+{% endblock content %}

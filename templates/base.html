@@ -1,32 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {% include 'links.html' %}
-    {% include 'css.html' %}
+    {% include 'includes/links.html' %}
+    {% include 'includes/css.html' %}
 </head>
 <body class="g-sidenav-show g-sidenav-hidden dark-version bg-gray-600">
-  
   <!-- Aside -->
   {% include 'includes/aside.html' %}
   <!-- End Aside -->
-
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ps ps--active-y">
-
   <!-- Navbar -->
   {% include 'includes/navbar.html' %}
   <!-- End Navbar -->
-
   <!-- MAIN -->
   {% block content %}{% endblock content %}
   <!-- End MAIN -->
-
   <!-- -------- START FOOTER  ------- -->
   {% include 'includes/footer.html' %}
   <!-- -------- END FOOTER ------- -->
-
   </main>
-
-  {% include 'script.html' %}  
-
+  {% include 'includes/script.html' %}  
 </body>
 </html>
